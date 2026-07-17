@@ -10,13 +10,13 @@
   --articwhite: #f5f7fa; /* Primary Text */
   --coolgray: #a9b4c2; /* Secondary Text */
   --slategray: #7c8898; /* Muted Text */
-  --glacialblue: #5dbfd8; /* Primary Accent , Button Background */
+  --glacialblue: #5dbfd8;
   --iceblue: #82d7ea; /* Accent Hover  */
   --deepglacier: #3a8ea5; /* Dark Accent */
   --frostmint: #87e8d1; /* Success/Highlight */
   --lighterglacier: #73cee4; /* Button Hover */
   --almostblack: #0e1117; /* Button Text */
-  --glacialteal: #5cc6b3;
+  --glacialteal: #5cc6b3; /* Primary Accent , Button Background */
 }
 
 * {
@@ -39,17 +39,9 @@ ul {
   color: var(--articwhite);
 }
 
-button {
-  border-radius: 6px;
-}
-
-section {
-  padding: 40px;
-}
-
 h1 {
   color: var(--articwhite);
-  font-size: clamp(4rem, 4.2rem, 4.3rem);
+  font-size: clamp(4rem, 4vw, 4.3rem);
   letter-spacing: 1.3px;
 }
 
@@ -57,7 +49,7 @@ h2 {
   color: var(--articwhite);
   font-weight: 500;
   letter-spacing: 1.2px;
-  font-size: 30px;
+  font-size: clamp(1rem, 2.5vw, 2.5rem);
   font-family: "Inter", sans-serif;
 }
 
@@ -70,13 +62,9 @@ h3 {
 }
 
 p {
-  font-size: clamp(1rem, 1.3rem, 1.4rem);
+  font-size: clamp(1rem, 1.3vw, 1.4rem);
   font-family: "Outfit", sans-serif;
   color: var(--coolgray);
-}
-
-.glacialtext {
-  color: var(--glacialteal);
 }
 
 section {
@@ -92,7 +80,8 @@ section {
   justify-content: space-between;
 }
 
-.button {
+button {
+  border-radius: 6px;
   padding-left: clamp(1rem, 1.8rem, 2rem);
   padding-right: clamp(1rem, 1.8rem, 2rem);
   padding-top: clamp(0.7rem, 1rem, 1.1rem);
@@ -110,6 +99,10 @@ section {
   border-style: solid;
 }
 
+.buttondark i {
+  color: var(--frostmint);
+}
+
 .buttondark:hover {
   cursor: pointer;
   border-color: var(--frostmint);
@@ -124,21 +117,24 @@ section {
 }
 
 .buttonteal:hover {
-  background-color: #87e8d1;
+  background-color: var(--frostmint);
   transition: 0.5s ease;
   cursor: pointer;
 }
 
-.buttondark i {
-  color: var(--frostmint);
+.glacialtext {
+  color: var(--glacialteal);
 }
 
-.headerbutton i {
-  font-size: clamp(0.6rem, 0.8rem, 1rem);
-  padding-left: clamp(0.3rem, 0.5rem, 0.5rem);
+.page__wrapper {
+  max-width: 1800px;
+  width: 100%;
+  margin: 0 auto;
 }
 
-/*       HEADER AND NAVIGATION SECTION                */
+/*  =======================================
+          HEADER / NAV SECTION              
+========================================= */
 
 header {
   background-color: var(--almostblack);
@@ -157,7 +153,7 @@ header {
 }
 
 .logo__img {
-  max-height: 5cap;
+  max-height: 5vh;
 }
 
 header nav {
@@ -169,7 +165,7 @@ header nav {
   letter-spacing: 0.7px;
   padding-right: 40px;
   font-weight: 600;
-  font-size: 1rem;
+  font-size: clamp(0.7rem, 2vw, 1.1rem);
   color: var(--coolgray);
 }
 
@@ -182,6 +178,11 @@ header nav {
   transition: 0.6s ease;
 }
 
+.headerbutton i {
+  font-size: clamp(0.6rem, 0.8vw, 1rem);
+  padding-left: clamp(0.3rem, 0.5vw, 0.5rem);
+}
+
 /* ==========================
    HERO SECTION
 ========================== */
@@ -191,12 +192,12 @@ header nav {
   display: flex;
   flex-direction: column;
   padding: 0;
-  min-height: 65vh;
+  min-height: 85vh;
   background:
     linear-gradient(
       to right,
       rgb(14, 17, 23),
-      rgba(14, 17, 23, 0.52),
+      rgba(14, 17, 23, 0.5),
       rgba(14, 17, 23, 0.001)
     ),
     linear-gradient(to bottom, rgb(14, 17, 23), rgba(14, 17, 23, 0.001)),
@@ -208,14 +209,7 @@ header nav {
 .herocontent__wrapper {
   display: flex;
   flex-direction: column;
-  background: linear-gradient(
-    to right,
-    rgba(14, 17, 23, 0.98) 0%,
-    rgba(14, 17, 23, 0.96) 70%,
-    rgba(14, 17, 23, 0.75) 85%,
-    rgba(14, 17, 23, 0) 100%
-  );
-  max-width: 50vw;
+  max-width: 30vw;
   align-self: flex-start;
   padding: 120px 60px;
   height: 100%;
@@ -244,7 +238,7 @@ header nav {
   width: 100%;
   justify-content: left;
   padding: 40px 0px;
-  font-size: clamp(1rem, 1.2rem, 1.3rem);
+  font-size: clamp(1rem, 1vw, 1.3rem);
 }
 
 .herotechstack__tech {
@@ -252,26 +246,41 @@ header nav {
   width: 100%;
   align-items: center;
   justify-content: left;
-  padding-right: 36px;
+  padding-right: 24px;
   font-family: "Outfit", sans-serif;
 }
 
 .herotechstack__tech i {
-  padding-right: 8px;
+  padding-right: 12px;
 }
 
-/*       ABOUT ME SECTION                */
+/*  =======================================
+             ABOUT ME SECTION                
+========================================= */
 
 .aboutme {
   display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.aboutmeheader__wrapper {
+  width: 100%;
+}
+
+.aboutmecontent__wrapper {
+  display: flex;
+  flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  width: 100%;
+  height: 100%;
 }
 
 .aboutmetext__wrapper {
   display: flex;
   flex-direction: column;
-  width: 35%;
+  width: 30%;
 }
 
 .aboutme p {
@@ -283,7 +292,7 @@ header nav {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 35%;
+  width: 30%;
   padding: 40px;
 }
 
@@ -295,36 +304,29 @@ header nav {
   border-radius: 50%;
   overflow: hidden;
   border: 3px solid var(--glacialteal);
-
   width: 100%;
   height: 100%;
-
   object-fit: cover;
 }
 
 .aboutmeimg__dots {
   position: absolute;
-
   right: 35px;
   bottom: 40px;
-
   width: 140px;
   height: 126px;
-
   background-image: radial-gradient(
     var(--glacialteal) 1.5px,
     transparent 1.5px
   );
-
   background-size: 16px 16px;
-
   opacity: 0.35;
 }
 
 .aboutmefacts__wrapper {
   display: flex;
   flex-direction: column;
-  width: 20%;
+  width: 25%;
 }
 
 .aboutmefacts__wrapper li {
@@ -339,9 +341,9 @@ header nav {
   font-size: 24px;
 }
 
-/* ==========================
-   SKILLS SECTION
-========================== */
+/*  =======================================
+             SKILLS SECTION                
+========================================= */
 
 .skills {
   display: flex;
@@ -574,9 +576,9 @@ header nav {
   transform: translateX(5px);
 }
 
-/* ==========================
-   PROJECTS SECTION
-========================== */
+/*  =======================================
+             PROJECTS SECTION                
+========================================= */
 
 .projects {
   display: flex;
@@ -848,9 +850,9 @@ header nav {
   transform: translateY(-2px);
 }
 
-/* ==========================
-   CONTACT SECTION
-========================== */
+/*  =======================================
+             CONTACT SECTION                
+========================================= */
 
 .contact {
   display: block;
@@ -1072,9 +1074,9 @@ header nav {
   transform: rotate(15deg);
 }
 
-/* ==========================
-   FOOTER SECTION
-========================== */
+/*  =======================================
+             FOOTER SECTION                
+========================================= */
 
 .footer {
   margin: 0 20px 20px;
@@ -1267,6 +1269,12 @@ header nav {
   transform: translateY(-4px);
 }
 
+/*  =======================================
+
+           MEDIA QUERIES              
+
+=========================================  */
+
 /* ==========================
    FOOTER RESPONSIVE STYLES
 ========================== */
@@ -1339,7 +1347,11 @@ header nav {
   }
 }
 
-/* =============   MEDIA QUERIES ======================== */
+/*  =======================================
+             MEDIA QUERY 
+             MEDIUM SCREENS
+             MIN 768PX  MAX 920PX               
+========================================= */
 
 @media (min-width: 768px) and (max-width: 920px) {
   .button {
@@ -1415,6 +1427,12 @@ header nav {
     display: none;
   }
 }
+
+/*  =======================================
+             MEDIA QUERY 
+             SMALL SCREENS - IPHONE OPTIMIZED
+             MIN 400PX  MAX 768PX               
+========================================= */
 
 @media (min-width: 400px) and (max-width: 768px) {
   section {
